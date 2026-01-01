@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Chess Quotes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0062FF;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px; /* Mobile friendly max width */
+            background-color: transparent;
+            min-height: 100vh;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 3rem; /* Requested spacing at bottom */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: var(--primary-blue);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Image Styling */
+        .quote-image-container {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 98, 255, 0.15);
+        }
+
+        .quote-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sinhala Text Styling */
+        .quote-text {
+            font-family: 'Noto Serif Sinhala', serif;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        /* Info Box Styling */
+        .info-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary-blue);
+            padding: 10px 30px 10px 15px;
+            margin-top: 36px;
+            margin-bottom: 25px;
+            position: relative;
+            border-radius: 4px;
+            width: 100%;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-box p {
+            font-family: 'Noto Serif Sinhala', serif;
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 5px;
+            font-size: 12px;
+        }
+
+        .close-icon:hover {
+            color: var(--primary-blue);
+        }
+        
+        .connect-text {
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 36px;
+            
+        }    
+
+        /* Social Media Section */
+        .social-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .whatsapp-banner {
+            width: 100%;
+            display: block;
+        }
+        
+        .whatsapp-banner img {
+            width: 70%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .social-icons-row {
+            display: flex;
+            justify-content: left;
+            gap: 15px; /* Space between icons */
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="quote-image-container">
+            <img id="daily-image" src="" alt="Daily Chess Quote">
+        </div>
+
+        <p id="daily-text" class="quote-text"></p>
+
+        <div class="info-box" id="infoBox">
+            <i class="fas fa-times close-icon" onclick="hideInfo()"></i>
+            <p>මෙම Daily Chess Quotes පිටුව තුළින් දිනපතා අලුත් වන Chess Quotes බලන්න..</p>
+        </div>
+        
+        <div class="connect-text"> 
+        <p>Connect with us</p>
+
+        <div class="social-section">
+            <a href="https://whatsapp.com/channel/0029Va4acqk9RZAUDPf9yo1c" target="_blank" class="whatsapp-banner">
+                <img src="https://imgur.com/5cp19UJ.png" alt="WhatsApp Channel">
+            </a>
+
+            <div class="social-icons-row">
+                <a href="https://g.co/kgs/Cc3tSZ" target="_blank" class="social-icon">
+                    <img src="https://imgur.com/buDzExl.png" alt="Google">
+                </a>
+                <a href="https://www.facebook.com/ChessSaviya" target="_blank" class="social-icon">
+                    <img src="https://imgur.com/7ZkDpoZ.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/chesssaviya/" target="_blank" class="social-icon">
+                    <img src="https://imgur.com/CW2Olzd.png" alt="Instagram">
+                </a>
+                <a href="https://www.youtube.com/@ChessSaviya/" target="_blank" class="social-icon">
+                    <img src="https://imgur.com/n3UDJwc.png" alt="YouTube">
+                </a>
+                <a href="https://x.com/Chess_Saviya" target="_blank" class="social-icon">
+                    <img src="https://imgur.com/2pRd1mx.png" alt="X">
+                </a>
+                <a href="https://www.tiktok.com/@chess_saviya" target="_blank" class="social-icon">
+                    <img src="https://imgur.com/Iztn20c.png" alt="TikTok">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. DATA: The list of 54 quotes (Index 0 to 53)
+        const quotesList = [
+            { id: 1, text: "චෙස් ක්‍රීඩාවේ ගුණාත්මක භාවයට කාල පාලනය ඍජුව බලපායි. ⏰♟️", img: "https://imgur.com/jQRVGTT.jpg" },
+            { id: 2, text: "යන්න යන්න; හොඳ පියවරක්; යනුවෙන් ඔබට දිරිමත් කිරීම් කළ නොහැක. මිනිසුන්ට යම් හැඟීම් අවශ්‍යයි. චෙස් යනු කලාවක් මිස ප්‍රේක්ෂක ක්‍රීඩාවක් නොවේ. 🗣🚫", img: "https://imgur.com/t2X7v2a.jpg" },
+            { id: 3, text: "චෙස් යනු විශ්ලේෂණ කලාවකි! 📈♟️", img: "https://imgur.com/WY0J1wW.jpg" },
+            { id: 4, text: "මම ක්‍රීඩා කරන සෑම තරඟයක් තුළින්ම අලුත් අදහස් ලබා දෙන අතර මට දියුණු වීමට උපකාරී වේ. 💡♟️", img: "https://imgur.com/sqe8wQh.jpg" },
+            { id: 5, text: "චෙස් ක්‍රීඩාව මනසට සීතල ස්නානයකි. 💦♟️", img: "https://imgur.com/VsyoSDd.jpg" },
+            { id: 6, text: "ජීවිතය චෙස් ක්‍රීඩාවක් බඳුය. චෙස් ක්‍රීඩාවේ චලනයන් මෙන් කාලය ද නිසි පරිදි භාවිතා කරන්න ♟️⌛", img: "https://imgur.com/xlMyOlt.jpg" },
+            { id: 7, text: "ඔබ දිනන තරඟයකට වඩා ඔබ පැරදුණු තරඟයකින් බොහෝ දේ ඉගෙන ගත හැකිය. හොඳ ක්‍රීඩකයෙකු වීමට පෙර ඔබට තරඟ සිය ගණනක් පරාද වීමට සිදුවනු ඇත. 📉♟️", img: "https://imgur.com/s0MPSpE.jpg" },
+            { id: 8, text: "චෙස් ක්‍රීඩාව ඇත්තෙන්ම 99%ක් ගණනය කිරීමකි. ♟️🧮", img: "https://imgur.com/k5GPgk8.jpg" },
+            { id: 9, text: "ඔබට තරගය ජය ගැනීමට අවශ්‍ය නම්, ඔබ ප්‍රතිවාදියාට බිය නොවිය යුතුයි. ජයග්‍රහණය සඳහා තවත් බොහෝ දේ බලපායි, නමුත් මේ සියල්ලටම වඩා වැදගත්ම දෙය: ඔහුට බිය නොවන්න! 👊♟️", img: "https://imgur.com/ByizEPJ.jpg" },
+            { id: 10, text: "පෝන් ඉත්තා යනු චෙස් ක්‍රීඩාවේ ජීවයයි ! ❤️♟️", img: "https://imgur.com/2CO5kc8.jpg" },
+            { id: 11, text: "චෙස් ක්‍රීඩාව යනු පුවරුව මත සිදු කරන යුද්ධයකි. එහි අරමුණ වන්නේ ප්‍රතිවාදියාගේ මනස විනාශ කිරීමයි. 🔥⚔️", img: "https://imgur.com/A9ZeSxo.jpg" },
+            { id: 12, text: "කිසිදු සැලසුමක් නොමැති වීමට වඩා නරක සැලැසුමක් හොඳයි. 〽️♟️", img: "https://imgur.com/hXsqqyw.jpg" },
+            { id: 13, text: "ඔබට චෙස් ක්‍රීඩාවට දක්ෂ විය හැක්කේ චෙස් ක්‍රීඩාවට ආදරය කරන්නේ නම් පමණි. ❤️♟️", img: "https://imgur.com/Opzuf9A.jpg" },
+            { id: 14, text: "චෙස් යනු එහි ආකෘතිය අනුව ක්‍රීඩාවකි, එහි අන්තර්ගතය අනුව කලාවකි සහ එහි නිපුණත්වය ලබා ගැනීමේ දුෂ්කරතාවටය මත විද්‍යාවකි. 🛸♟️", img: "https://imgur.com/pio0w2R.jpg" },
+            { id: 15, text: "හොඳ පිහිටීම් වලට තරඟ ජයගත නොහැක. හොඳ ඇදීම් වලට එය සිදු කළ හැක. ⬆️♟️", img: "https://imgur.com/Uoow8aX.jpg" },
+            { id: 16, text: "චෙස් ක්‍රීඩාවේ විශිෂ්ටත්වය උපායශීලී මනසක එක් සලකුණකි. ♟️🎯", img: "https://imgur.com/SaDAMMz.jpg" },
+            { id: 17, text: "ඔබේ ඉත්තන්ට උදව් කරන්න. එවිට ඔවුන් ඔබට උදව් කරනු ඇත. 🙌♟️", img: "https://imgur.com/xVnJD6v.jpg" },
+            { id: 18, text: "ඔබ සුදු පිළ ක්‍රීඩා කරන්නේ තරඟ සම කර ගැනීමේ අරමුණින් නම් එය චෙස් ක්‍රීඩාවට එරෙහි අපරාධයකි. ⚪️♟️", img: "https://imgur.com/PW6TXRj.jpg" },
+            { id: 19, text: "සතුරු රජුගේ හිස් කබලට වඩා වටින මිල කළ හැකි කිසිවක් නොමැත. 👑♟️", img: "https://imgur.com/O2qdsKZ.jpg" },
+            { id: 20, text: "චෙස් ක්‍රීඩාවේදී ජීවිතයේ දී මෙන්, තමා වැනිම වූ මිනිසෙකු සිටින භයානකම ප්‍රතිවාදියා වේ. 🤵🔥🤵", img: "https://imgur.com/wYtl48C.jpg" },
+            { id: 21, text: "චෙස් ක්‍රීඩාවේ වැදගත්ම සාධකය විවේචනාත්මක චින්තනයයි. ජීවිතයේ දී මෙන්, ඔබ තීරණ ගැනීමට පෙර සිතා බැලිය යුතුයි. 🧭️♟️", img: "https://imgur.com/XsUsHdF.jpg" },
+            { id: 22, text: "එක් නරක ඇදීමක් හොඳ ඇදීම් හතළිහක් අහෝසි කරයි. ⭕️♟️", img: "https://imgur.com/XESfgov.jpg" },
+            { id: 23, text: "සමහරු හිතනවා තමන්ගේ ප්‍රතිවාදියා ඉතා හොඳින් ක්‍රීඩා කළොත් පැරදුනත් කමක් නෑ කියලා. මගේ මතය ඔබ අනුකම්පා විරහිත විය යුතුය. ♟️😎", img: "https://imgur.com/PkGtvws.jpg" },
+            { id: 24, text: "චෙස් යනු පරිකල්පනයකි. 💭♟️", img: "https://imgur.com/D2cPd3U.jpg" },
+            { id: 25, text: "ජීවිතයේ දී, චෙස් ක්‍රීඩාවේදී මෙන්, පෙර සිතීම ජය ගෙනෙනු ලබයි. 🤔♟️", img: "https://imgur.com/lkzQxrN.jpg" },
+            { id: 26, text: "චෙස් ක්‍රීඩාව මනසේ ව්‍යායාම මධ්‍යස්ථානයක් බඳුය. 🏋♟️", img: "https://imgur.com/BhRxgjA.jpg" },
+            { id: 27, text: "ඔබට සාර්ථක වීමට අවශ්‍ය නම්, ඔබ අසාර්ථක වීමේ අවදානම නොබියව ගත යුතුයි. ♟️💯", img: "https://imgur.com/q0W6GnM.jpg" },
+            { id: 28, text: "යමෙකු චෙස් ක්‍රීඩා කරන ආකාරය ඔහුගේ සම්පූර්ණ ස්වභාවය පෙන්නුම් කරයි. 👤♟️", img: "https://imgur.com/K9Xaerm.jpg" },
+            { id: 29, text: "උපාය මාර්ග සඳහා චින්තනය අවශ්‍ය වන අතර උපක්‍රම සඳහා නිරීක්ෂණය අවශ්‍ය වේ. 👀♟️", img: "https://imgur.com/bLVRhlC.jpg" },
+            { id: 30, text: "ඉත්තන් බිලි දීමක් ප්‍රතික්ෂේප කළ හැකි හොඳම ආකාරය වන්නේ එය පිළිගැනීමෙනි. ♟️🙏", img: "https://imgur.com/q9OQPCm.jpg" },
+            { id: 31, text: "චෙස් ක්‍රීඩාව මිනිසා ප්‍රඥාවන්ත හා පැහැදිලි දැක්මක් ඇති කරයි. 🧠♟", img: "https://imgur.com/y1BwmJt.jpg" },
+            { id: 32, text: "චෙස් යනු අයුක්තියට එරෙහි අරගලයකි. ⚔♟️", img: "https://imgur.com/jg2kOzt.jpg" },
+            { id: 33, text: "ඔබට චෙස් ක්‍රීඩාවේ අති දක්ෂයෙකු විය හැක්කේ ඔබේ වැරදි සහ අඩුපාඩු දුටුවහොත් පමණි. ජීවිතයේ ද හරියටම ඊට සමාන වේ. 🎯♟️", img: "https://imgur.com/xc5IUiE.jpg" },
+            { id: 34, text: "ඔබ පමණට වඩා කරුණාවන්ත අයෙක් නම් ඔබට චෙස් ක්‍රීඩා කළ නොහැක. ♟️✋", img: "https://imgur.com/X235g8i.jpg" },
+            { id: 35, text: "චෙස් ආරම්භක ක්‍රම ඔබට චෙස් තරඟ ආරම්භ කිරීමේ ක්‍රම උගන්වයි. චෙස් තරඟ අවසන් කරන ක්‍රම ඔබට චෙස් ක්‍රීඩාව උගන්වයි. ♟️🔚", img: "https://imgur.com/naDAVZ8.jpg" },
+            { id: 36, text: "චෙස් තරඟයක ආරම්භක කොටස පොතක් මෙන් ක්‍රීඩා කරන්න. මැද කොටස මැජික් ශිල්පියෙකු මෙන් ක්‍රීඩා කරන්න. අවසාන කොටස යන්ත්‍රයක් මෙන් ක්‍රීඩා කරන්න! ♟️☝️", img: "https://imgur.com/g6CaA96.jpg" },
+            { id: 37, text: "එක් දවසක් ඔබ ඔබේ ප්‍රතිවාදියාට පාඩමක් ලබා දෙනවා, ඊළඟ දවසේ ඔහු ඔබට පාඩමක් ලබා දෙනවා. සමස්ත චෙස් ක්‍රීඩාව නම් එයයි. ♟️💯", img: "https://imgur.com/g8tKj5k.jpg" },
+            { id: 38, text: "අවිශ්වාසය යනු චෙස් ක්‍රීඩකයෙක් සඳහා වඩාත්ම අවශ්‍ය ලක්ෂණයයි. ⁉️♟️", img: "https://imgur.com/pERCiHp.jpg" },
+            { id: 39, text: "චෙස් ක්‍රීඩාවේ කිංග් සටන්කාමී ස්ථානයක සිටී නම් කිංග්ව භාවිතා කරන්න! 🔥👑", img: "https://imgur.com/LNuMpDB.jpg" },
+            { id: 40, text: "චෙස් ක්‍රීඩාව කලාවක්, විද්‍යාවක් හා ක්‍රීඩාවක් යන සියල්ලෙන් යුක්ත වේ. 💎♟️", img: "https://imgur.com/zOc4fAG.jpg" },
+            { id: 41, text: "ඔබ හොඳ ඇදීමක් දකින විට, වඩාත් හොඳ ඇදීමක් සොයන්න. 🔎♟️", img: "https://imgur.com/qmzlgf9.jpg" },
+            { id: 42, text: "ජීවිතය යනු ඔබට ගත හැකි හොඳම තීරණ ගැනීමයි. ඉතින් මම හිතන අයුරින් චෙස් ක්‍රීඩාව ඉතාමත් වටිනවා. 🌟♟️", img: "https://imgur.com/NXg0cR5.jpg" },
+            { id: 43, text: "චෙස් තරඟයක් අතහැර දමා ජයග්‍රහණය කළ කිසිවෙකු නොමැත ♟️🚩", img: "https://imgur.com/UW7E9LP.jpg" },
+            { id: 44, text: "චෙස් ක්‍රීඩාවේ නරක දවසක් චෙස් ක්‍රීඩාවේ ඕනෑම හොඳ දවසකට වඩා හොඳයි! ♟️👍", img: "https://imgur.com/BBWGbkF.jpg" },
+            { id: 45, text: "ඔබ වරක් චෙස් ක්‍රීඩකයෙකු වූ පසු, ඔබ ක්‍රීඩාව ගැන සිතමින් බොහෝ කාලයක් ගත කරන අතර ඔබට එය සම්පූර්ණයෙන්ම ඔබේ මනසින් ඉවත් කළ නොහැක. 🛑♟️", img: "https://imgur.com/ze7ExCA.jpg" },
+            { id: 46, text: "චෙස් ක්‍රීඩාව ඔබේ මනස විවෘත කර පොහොසත් කරවයි! 🧠♟️", img: "https://imgur.com/n4gLieq.jpg" },
+            { id: 47, text: "මම මගේ මානසික ශක්තියෙන් 98%ක් චෙස් ක්‍රීඩාව වෙනුවෙන් යොදනවා. අනෙකුත් ඒවායෙන් ලබා දෙන්නේ 2%ක් පමණි. 🧠♟️", img: "https://imgur.com/r3CywvL.jpg" },
+            { id: 48, text: "චෙස් ක්‍රීඩාව බියගුලු ආත්මයන් සඳහා නොවේ. 😩♟️", img: "https://imgur.com/EbOlsN1.jpg" },
+            { id: 49, text: "චෙස් ක්‍රීඩාවේ සෑම ඇදීමක් සඳහාම අරමුණක් තිබිය යුතුයි. 🎯♟️", img: "https://imgur.com/s8Cm6Rl.jpg" },
+            { id: 50, text: "චෙස් තරඟයක් නිමා වූ පසු, පෝන් සහ කිංග් යන ඉත්තන් නැවත එකම බඳුනකට යනු ලබයි. ♟️👑🧰️", img: "https://imgur.com/FX7jmYV.jpg" },
+            { id: 51, text: "ඔබේ ප්‍රතිවාදියා තරඟය සම කිරීමට ඉල්ලා සිටින්නේ නම්, ඔහුට තරඟය අවාසි සහගත යැයි සිතන්නේ මන්දැයි සොයා බැලීමට උත්සාහ කරන්න. 🤝🤔", img: "https://imgur.com/DsNBbcB.jpg" },
+            { id: 52, text: "චෙස් ක්‍රීඩාව යනු මදුරුවෙකුට පානය කළ හැකි සහ අලියෙකුට ස්නානය කළ හැකි මුහුදක් බඳුය.  🦟🐘 ♟️", img: "https://imgur.com/nphfPCp.jpg" },
+            { id: 53, text: "ඔබ දුර්වල ක්‍රීඩකයෙකුට මුහුණ දීමට සූදානම් වන විට ඕනෑවට වඩා විශ්වාසය තැබීමේ අවදානම සැමවිටම පවතී. ♟️🙃", img: "https://imgur.com/rJshx2H.jpg" },
+            { id: 54, text: "සෑම Chess GrandMaster වරයෙක්ම විටෙක ආධුනිකයෙකි. එබැවින් ඔබගේ උත්සාහය අත්නොහරින්න! ♟️💯", img: "https://imgur.com/RFHucYZ.jpg" }
+        ];
+
+        // 2. RANDOMIZER: This array shuffles the order for 2026 so it looks random but is consistent.
+        // It maps 'Day 0' to 'Quote Index X', 'Day 1' to 'Quote Index Y', etc.
+        const shuffledOrder = [
+            25, 3, 48, 12, 53, 1, 30, 41, 19, 7, 
+            36, 14, 28, 45, 50, 4, 33, 9, 22, 40,
+            16, 31, 2, 49, 11, 44, 27, 5, 38, 20,
+            15, 42, 8, 32, 24, 0, 46, 35, 13, 29,
+            39, 10, 52, 23, 17, 43, 6, 26, 18, 51,
+            37, 34, 47, 21
+        ];
+
+        // 3. --- MANUAL OVERRIDES ---
+        // If you want a SPECIFIC quote on a SPECIFIC date in 2026, add it here.
+        // Format: "YYYY-MM-DD": QuoteID (1 to 54)
+        const customDates = {
+             "2026-01-01": 20, // Example: On Valentine's day, show Quote 10
+             "2026-02-04": 52,  // Example: On New Year, show Quote 1
+             "2026-02-14": 13,
+             "2026-04-13": 1,
+             "2026-04-14": 36,
+             "2026-04-15": 27,
+             "2026-05-01": 50,
+             "2026-07-20": 21,
+             "2026-07-21": 33,
+             "2026-07-22": 43,
+             "2026-10-01": 51,
+             "2026-12-25": 17,
+             "2026-12-26": 19,
+             "2026-12-31": 37,
+             
+        };
+
+        function getQuoteForToday() {
+            const now = new Date();
+            
+            // --- TIME ADJUSTMENT: SHIFT BACK 4 HOURS ---
+            // This makes the "programming day" start at 4:00 AM.
+            // If it is 3:59 AM, this subtraction pushes it to 11:59 PM of the previous day.
+            const adjustedDate = new Date(now.getTime() - (4 * 60 * 60 * 1000));
+
+            // Start Date for rotation: Jan 1, 2026
+            const startDate = new Date('2026-01-01T00:00:00');
+            
+            // Check manual override using the ADJUSTED date
+            // This means if you set a manual date for "2026-02-14", 
+            // it will actually appear from Feb 14th 4:00 AM to Feb 15th 4:00 AM.
+            const offset = adjustedDate.getTimezoneOffset() * 60000;
+            const localISODate = (new Date(adjustedDate - offset)).toISOString().slice(0, 10);
+            
+            if (customDates[localISODate]) {
+                return quotesList[customDates[localISODate] - 1];
+            }
+
+            // Logic 1: If the adjusted date is BEFORE 2026, show Quote #1
+            if (adjustedDate < startDate) {
+                return quotesList[0];
+            }
+
+            // Logic 2: Calculate days using the ADJUSTED date
+            const diffTime = Math.abs(adjustedDate - startDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            
+            const sequenceIndex = diffDays % 54;
+            const originalIndex = shuffledOrder[sequenceIndex];
+            
+            return quotesList[originalIndex];
+        }
+
+        function displayQuote() {
+            const quoteData = getQuoteForToday();
+            
+            const imgElement = document.getElementById('daily-image');
+            const textElement = document.getElementById('daily-text');
+            
+            imgElement.src = quoteData.img;
+            textElement.innerText = quoteData.text;
+            
+            // Update links to include the redirect if needed (currently links are static)
+            // But if you wanted dynamic social links per quote, you'd do it here.
+        }
+
+        function hideInfo() {
+            document.getElementById('infoBox').style.display = 'none';
+        }
+
+        // Initialize
+        displayQuote();
+
+    </script>
+</body>
+</html>
